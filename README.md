@@ -5,6 +5,20 @@ comparison. It is published as a standalone source artifact. It does not include
 transcripts, credentials, local databases, recordings, build output, or operator workspace
 paths.
 
+## Screenshots
+
+### Demand dashboard
+
+![DeepSeek V4 Flash Vision SaaS Demand Radar dashboard](docs/screenshots/dashboard.png)
+
+### Ranked needs
+
+![DeepSeek V4 Flash Vision ranked SaaS needs](docs/screenshots/needs.png)
+
+### Mobile dashboard
+
+<img src="docs/screenshots/mobile-dashboard.png" alt="DeepSeek V4 Flash Vision mobile SaaS Demand Radar dashboard" width="390">
+
 Discover which SaaS products people currently want from public X and Reddit
 conversations. The system ingests public source records, detects explicit buying
 intent, tool requests, workarounds, price complaints and operational pain,
