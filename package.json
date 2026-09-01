@@ -1,0 +1,42 @@
+{
+  "name": "saas-demand-radar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SaaS Demand Radar - discover which SaaS products people want from public X and Reddit conversations",
+  "workspaces": [
+    "server",
+    "web",
+    "e2e"
+  ],
+  "scripts": {
+    "start": "npm run db:migrate && npm run build && concurrently -k -n api,web -c blue,green \"npm run api\" \"npm run web:serve\"",
+    "setup": "npm install && npm run db:migrate && npm run build",
+    "dev": "npm run db:migrate && concurrently -k -n api,web -c blue,green \"npm run api:watch\" \"npm run web:dev\"",
+    "api": "tsx server/src/index.ts",
+    "api:watch": "tsx watch server/src/index.ts",
+    "web:dev": "npm run dev -w web",
+    "web:build": "npm run build -w web",
+    "web:serve": "npm run preview -w web",
+    "build": "npm run web:build",
+    "db:migrate": "tsx server/src/db/migrate.ts",
+    "db:seed": "tsx server/src/db/migrate.ts --seed",
+    "test": "npm run test:api && npm run test:e2e",
+    "test:api": "npm run test -w server",
+    "test:e2e": "npm run test -w e2e",
+    "lint": "echo lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "allowScripts": {
+    "better-sqlite3@11.10.0": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.25.12": true
+  }
+}
